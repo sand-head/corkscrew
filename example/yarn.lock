@@ -4,7 +4,7 @@
 
 "@sand-head/corkscrew@file:../pkg/corkscrew-v0.0.1.tgz":
   version "0.0.1"
-  resolved "file:../pkg/corkscrew-v0.0.1.tgz#fe641b74e7ab7eccd4ccc9cae3bc6bb95ea27d8a"
+  resolved "file:../pkg/corkscrew-v0.0.1.tgz#99f80edadff2f42092597405669e2de43304c103"
   dependencies:
     rxjs "^6.6.3"
 

@@ -1,11 +1,4 @@
-import { Observable, Subscription } from 'rxjs';
-
-interface SubscriptionLike {
-  unsubscribe: () => void
-}
-const NO_SUBSCRIPTION: SubscriptionLike = {
-  unsubscribe: () => {}
-};
+import { Observable, Subscription, SubscriptionLike } from 'rxjs';
 
 export function bindValueOrObservable(value: object | Observable<any>, callback: (value: any) => void): Subscription | SubscriptionLike {
   if ('subscribe' in value) {
@@ -13,5 +6,8 @@ export function bindValueOrObservable(value: object | Observable<any>, callback:
   }
 
   callback(value);
-  return NO_SUBSCRIPTION;
+  return {
+    closed: true,
+    unsubscribe: () => {}
+  };
 }
