@@ -8,8 +8,9 @@
   <body>
     <main>
       <h1>The following is controlled by Corkscrew:</h1>
-      <p data-cork='text: paragraph, visible: timerIsEven'></p>
-      <p data-cork='text: timerText'></p>
+      <p data-cork="text: timerText"></p>
+      <input type="text" data-cork="value: textInput" />
+      <p data-cork="text: paragraph, visible: timerIsEven"></p>
     </main>
 
     <script type="module" src="/dist/index.js"></script>
