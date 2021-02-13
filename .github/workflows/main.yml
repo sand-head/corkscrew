@@ -14,6 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        if: github.event_name == 'release'
+        with:
+          # normally release actions checkout in a detached state
+          ref: 'main'
+      - uses: actions/checkout@v2
+        if: github.event_name != 'release'
       - name: Update package version & commit
         if: github.event_name == 'release'
         run: |
@@ -21,9 +27,7 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -am "Update package version"
-          git branch tmp
-          git checkout main
-          git merge tmp
+          git push
       - uses: actions/setup-node@v1
         with:
           node-version: '14.x'
