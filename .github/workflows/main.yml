@@ -12,7 +12,7 @@ on:
 jobs:
   update-version:
     runs-on: ubuntu-latest
-    if: github.event == 'release'
+    if: github.event_name == 'release'
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -55,7 +55,7 @@ jobs:
       #   run: yarn test
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
-        if: github.event == 'release'
+        if: github.event_name == 'release'
         with:
           name: pkg
           path: |
@@ -63,7 +63,7 @@ jobs:
   
   publish:
     runs-on: ubuntu-latest
-    if: github.event == 'release'
+    if: github.event_name == 'release'
     steps:
       - name: Download artifacts
         uses: actions/download-artifact@v2
