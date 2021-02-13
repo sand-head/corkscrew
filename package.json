@@ -1,6 +1,6 @@
 {
   "name": "@sand_head/corkscrew",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A WIP DOM binding library for RxJS.",
   "repository": "https://github.com/sand-head/corkscrew",
   "author": "Justin Schweigert <justin@schweigert.dev>",
@@ -10,8 +10,12 @@
   },
   "@pika/pack": {
     "pipeline": [
-      ["@pika/plugin-ts-standard-pkg"],
-      ["@pika/plugin-build-web"]
+      [
+        "@pika/plugin-ts-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ]
     ]
   },
   "dependencies": {
