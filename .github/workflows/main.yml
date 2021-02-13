@@ -21,7 +21,9 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -am "Update package version"
-          git push
+          git branch tmp
+          git checkout main
+          git merge tmp
       - uses: actions/setup-node@v1
         with:
           node-version: '14.x'
