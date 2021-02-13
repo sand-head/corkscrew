@@ -21,12 +21,14 @@ jobs:
       - name: Update package version
         run: |
           yarn version --no-git-tag-version --new-version ${{ github.event.release.tag_name }}
-      - name: Commit new version
+      - name: Commit new version and move release tag
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -am "Update package version"
+          git tag -f -a ${{ github.event.release.tag_name }}
           git push
+          git push -f --tags
 
   build:
     runs-on: ubuntu-latest
