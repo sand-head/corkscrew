@@ -1,5 +1,5 @@
 {
-  "name": "corkscrew",
+  "name": "@sand_head/corkscrew",
   "version": "0.0.1",
   "description": "A WIP DOM binding library for RxJS.",
   "repository": "https://github.com/sand-head/corkscrew",
